@@ -8,8 +8,8 @@ import random
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='>', intents=intents)
-sol_res = 128
-api1 = 8
+sol_res = 126
+api1 = 11
 api2 = 0
 api3 = 0
 api4 = 0
@@ -308,7 +308,7 @@ async def conductor(ctx, tipo=None, numero=None):
                             value=f'{transitTaxesNumber}', inline=True)
             embed.add_field(name=f'Numero de suspensiones',
                             value=f'{suspensiones}', inline=True)
-            embed.add_field(name=f'Numero De Licencia', value=f'{numeroLic}', inline=False)
+            embed.add_field(name=f'Numero De Licencia', value=f'{numeroLic}', inline=True)
             embed.add_field(name=f'Status Licencia', value=f'{status}', inline=True)
             embed.add_field(name=f'Solicitudes Restantes', value=f'{sol_res}', inline=False)
             embed.set_footer(

@@ -8,29 +8,59 @@ import random
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='>', intents=intents)
-sol_res = 39
+sol_res = 135
 api1 = 0
 api2 = 0
 api3 = 0
+api4 = 0
+api5= 0
+api6 =0
+api7 =0
+api8  = 0
+api9 = 0
 #https://pastebin.com/raw/GZPEU63h
 #https://pastebin.com/raw/YV77G3yQ
 #https://pastebin.com/raw/3qDWsxFi
 #
 @bot.command(case_insensitive=True)
 async def nombres(ctx, tipo=None, numero=None):
-    global sol_res, api1, api2, api3
-    if api1 < 13:
-        request1 = requests.get("https://pastebin.com/raw/GZPEU63h")
+    global sol_res, api1, api2, api3, api4, api5, api6, api7 ,api8, api9
+    if api1 < 15:
+        request1 = requests.get("https://pastebin.com/raw/JgrikEEF")
         a = request1.text
         api1=api1+1
-    elif api2 < 13:
-        request1 = requests.get("https://pastebin.com/raw/YV77G3yQ")
+    elif api2 < 15:
+        request1 = requests.get("https://pastebin.com/raw/P1JCUPDb")
         a = request1.text
         api2=api2+1
-    elif api3 < 13:
-        request1 = requests.get("https://pastebin.com/raw/3qDWsxFi")
+    elif api3 < 15:
+        request1 = requests.get("https://pastebin.com/raw/MPvHRrSm")
         a = request1.text
         api3=api3+1
+    elif api4 < 15:
+        request1 = requests.get("https://pastebin.com/raw/cdGBJ396")
+        a = request1.text
+        api4=api4+1
+    elif api5 < 15:
+        request1 = requests.get("https://pastebin.com/raw/2VQNYEqe")
+        a = request1.text
+        api5=api5+1
+    elif api6 < 15:
+        request1 = requests.get("https://pastebin.com/raw/uK2Mcbys")
+        a = request1.text
+        api6=api6+1
+    elif api7 < 15:
+        request1 = requests.get("https://pastebin.com/raw/0QbWu5AA")
+        a = request1.text
+        api7=api7+1
+    elif api8 < 15:
+        request1 = requests.get("https://pastebin.com/raw/iCC44qHk")
+        a = request1.text
+        api8=api8+1
+    elif api9 < 15:
+        request1 = requests.get("https://pastebin.com/raw/MPvHRrSm")
+        a = request1.text
+        api9=api9+1
     key = a
     if tipo == None:
         await ctx.send("Debe un tipo de documento CC, CE")
@@ -67,19 +97,43 @@ async def nombres(ctx, tipo=None, numero=None):
 
 @bot.command(case_insensitive=True)
 async def vehiculo(ctx, tipo=None, numero=None, placa=None):
-    global sol_res, api1, api2, api3
-    if api1 < 13:
-        request1 = requests.get("https://pastebin.com/raw/GZPEU63h")
+    global sol_res, api1, api2, api3, api4, api5, api6, api7 ,api8, api9
+    if api1 < 15:
+        request1 = requests.get("https://pastebin.com/raw/JgrikEEF")
         a = request1.text
         api1=api1+1
-    elif api2 < 13:
-        request1 = requests.get("https://pastebin.com/raw/YV77G3yQ")
+    elif api2 < 15:
+        request1 = requests.get("https://pastebin.com/raw/P1JCUPDb")
         a = request1.text
         api2=api2+1
-    elif api3 < 13:
-        request1 = requests.get("https://pastebin.com/raw/3qDWsxFi")
+    elif api3 < 15:
+        request1 = requests.get("https://pastebin.com/raw/MPvHRrSm")
         a = request1.text
         api3=api3+1
+    elif api4 < 15:
+        request1 = requests.get("https://pastebin.com/raw/cdGBJ396")
+        a = request1.text
+        api4=api4+1
+    elif api5 < 15:
+        request1 = requests.get("https://pastebin.com/raw/2VQNYEqe")
+        a = request1.text
+        api5=api5+1
+    elif api6 < 15:
+        request1 = requests.get("https://pastebin.com/raw/uK2Mcbys")
+        a = request1.text
+        api6=api6+1
+    elif api7 < 15:
+        request1 = requests.get("https://pastebin.com/raw/0QbWu5AA")
+        a = request1.text
+        api7=api7+1
+    elif api8 < 15:
+        request1 = requests.get("https://pastebin.com/raw/iCC44qHk")
+        a = request1.text
+        api8=api8+1
+    elif api9 < 15:
+        request1 = requests.get("https://pastebin.com/raw/MPvHRrSm")
+        a = request1.text
+        api9=api9+1
     key = a
     if tipo == None:
         await ctx.send("Debe un tipo de documento CC, CE, TI, PA, RC")
@@ -157,19 +211,43 @@ async def vehiculo(ctx, tipo=None, numero=None, placa=None):
 
 @bot.command()
 async def conductor(ctx, tipo=None, numero=None):
-    global sol_res, api1, api2, api3
-    if api1 < 13:
-        request1 = requests.get("https://pastebin.com/raw/GZPEU63h")
+    global sol_res, api1, api2, api3, api4, api5, api6, api7 ,api8, api9
+    if api1 < 15:
+        request1 = requests.get("https://pastebin.com/raw/JgrikEEF")
         a = request1.text
         api1=api1+1
-    elif api2 < 13:
-        request1 = requests.get("https://pastebin.com/raw/YV77G3yQ")
+    elif api2 < 15:
+        request1 = requests.get("https://pastebin.com/raw/P1JCUPDb")
         a = request1.text
         api2=api2+1
-    elif api3 < 13:
-        request1 = requests.get("https://pastebin.com/raw/3qDWsxFi")
+    elif api3 < 15:
+        request1 = requests.get("https://pastebin.com/raw/MPvHRrSm")
         a = request1.text
         api3=api3+1
+    elif api4 < 15:
+        request1 = requests.get("https://pastebin.com/raw/cdGBJ396")
+        a = request1.text
+        api4=api4+1
+    elif api5 < 15:
+        request1 = requests.get("https://pastebin.com/raw/2VQNYEqe")
+        a = request1.text
+        api5=api5+1
+    elif api6 < 15:
+        request1 = requests.get("https://pastebin.com/raw/uK2Mcbys")
+        a = request1.text
+        api6=api6+1
+    elif api7 < 15:
+        request1 = requests.get("https://pastebin.com/raw/0QbWu5AA")
+        a = request1.text
+        api7=api7+1
+    elif api8 < 15:
+        request1 = requests.get("https://pastebin.com/raw/iCC44qHk")
+        a = request1.text
+        api8=api8+1
+    elif api9 < 15:
+        request1 = requests.get("https://pastebin.com/raw/MPvHRrSm")
+        a = request1.text
+        api9=api9+1
     key = a
     if tipo == None:
         await ctx.send("Debe un tipo de documento CC, CE")
@@ -224,19 +302,43 @@ async def conductor(ctx, tipo=None, numero=None):
 
 @bot.command()
 async def afiliaciones(ctx, tipo=None, numero=None, fecha=None):
-    global sol_res, api1, api2, api3
-    if api1 < 13:
-        request1 = requests.get("https://pastebin.com/raw/GZPEU63h")
+    global sol_res, api1, api2, api3, api4, api5, api6, api7 ,api8, api9
+    if api1 < 15:
+        request1 = requests.get("https://pastebin.com/raw/JgrikEEF")
         a = request1.text
         api1=api1+1
-    elif api2 < 13:
-        request1 = requests.get("https://pastebin.com/raw/YV77G3yQ")
+    elif api2 < 15:
+        request1 = requests.get("https://pastebin.com/raw/P1JCUPDb")
         a = request1.text
         api2=api2+1
-    elif api3 < 13:
-        request1 = requests.get("https://pastebin.com/raw/3qDWsxFi")
+    elif api3 < 15:
+        request1 = requests.get("https://pastebin.com/raw/MPvHRrSm")
         a = request1.text
         api3=api3+1
+    elif api4 < 15:
+        request1 = requests.get("https://pastebin.com/raw/cdGBJ396")
+        a = request1.text
+        api4=api4+1
+    elif api5 < 15:
+        request1 = requests.get("https://pastebin.com/raw/2VQNYEqe")
+        a = request1.text
+        api5=api5+1
+    elif api6 < 15:
+        request1 = requests.get("https://pastebin.com/raw/uK2Mcbys")
+        a = request1.text
+        api6=api6+1
+    elif api7 < 15:
+        request1 = requests.get("https://pastebin.com/raw/0QbWu5AA")
+        a = request1.text
+        api7=api7+1
+    elif api8 < 15:
+        request1 = requests.get("https://pastebin.com/raw/iCC44qHk")
+        a = request1.text
+        api8=api8+1
+    elif api9 < 15:
+        request1 = requests.get("https://pastebin.com/raw/MPvHRrSm")
+        a = request1.text
+        api9=api9+1
     key = a
     if tipo == None:
         await ctx.send("Debe un tipo de documento CC, PA, CE, PEP, TI.")
@@ -334,19 +436,43 @@ async def borrar(ctx):
 
 @bot.command()
 async def placa(ctx, placa=None):
-    global sol_res, api1, api2, api3
-    if api1 < 13:
-        request1 = requests.get("https://pastebin.com/raw/GZPEU63h")
+    global sol_res, api1, api2, api3, api4, api5, api6, api7 ,api8, api9
+    if api1 < 15:
+        request1 = requests.get("https://pastebin.com/raw/JgrikEEF")
         a = request1.text
         api1=api1+1
-    elif api2 < 13:
-        request1 = requests.get("https://pastebin.com/raw/YV77G3yQ")
+    elif api2 < 15:
+        request1 = requests.get("https://pastebin.com/raw/P1JCUPDb")
         a = request1.text
         api2=api2+1
-    elif api3 < 13:
-        request1 = requests.get("https://pastebin.com/raw/3qDWsxFi")
+    elif api3 < 15:
+        request1 = requests.get("https://pastebin.com/raw/MPvHRrSm")
         a = request1.text
         api3=api3+1
+    elif api4 < 15:
+        request1 = requests.get("https://pastebin.com/raw/cdGBJ396")
+        a = request1.text
+        api4=api4+1
+    elif api5 < 15:
+        request1 = requests.get("https://pastebin.com/raw/2VQNYEqe")
+        a = request1.text
+        api5=api5+1
+    elif api6 < 15:
+        request1 = requests.get("https://pastebin.com/raw/uK2Mcbys")
+        a = request1.text
+        api6=api6+1
+    elif api7 < 15:
+        request1 = requests.get("https://pastebin.com/raw/0QbWu5AA")
+        a = request1.text
+        api7=api7+1
+    elif api8 < 15:
+        request1 = requests.get("https://pastebin.com/raw/iCC44qHk")
+        a = request1.text
+        api8=api8+1
+    elif api9 < 15:
+        request1 = requests.get("https://pastebin.com/raw/MPvHRrSm")
+        a = request1.text
+        api9=api9+1
     key = a
     if placa == None:
         await ctx.send("Debe introducir una placa XXXXXX")
@@ -417,6 +543,49 @@ async def placa(ctx, placa=None):
                 text='Desarrollado por https://instagram.com/nicolas.5301')
             await ctx.send(embed=embed)
 
-
+@bot.command(case_insensitive=True)
+async def placaperu(ctx, tipo=None, numero=None, placa=None):
+    global sol_res, api1, api2, api3, api4, api5, api6, api7 ,api8, api9
+    if api1 < 15:
+        request1 = requests.get("https://pastebin.com/raw/JgrikEEF")
+        a = request1.text
+        api1=api1+1
+    elif api2 < 15:
+        request1 = requests.get("https://pastebin.com/raw/P1JCUPDb")
+        a = request1.text
+        api2=api2+1
+    elif api3 < 15:
+        request1 = requests.get("https://pastebin.com/raw/MPvHRrSm")
+        a = request1.text
+        api3=api3+1
+    elif api4 < 15:
+        request1 = requests.get("https://pastebin.com/raw/cdGBJ396")
+        a = request1.text
+        api4=api4+1
+    elif api5 < 15:
+        request1 = requests.get("https://pastebin.com/raw/2VQNYEqe")
+        a = request1.text
+        api5=api5+1
+    elif api6 < 15:
+        request1 = requests.get("https://pastebin.com/raw/uK2Mcbys")
+        a = request1.text
+        api6=api6+1
+    elif api7 < 15:
+        request1 = requests.get("https://pastebin.com/raw/0QbWu5AA")
+        a = request1.text
+        api7=api7+1
+    elif api8 < 15:
+        request1 = requests.get("https://pastebin.com/raw/iCC44qHk")
+        a = request1.text
+        api8=api8+1
+    elif api9 < 15:
+        request1 = requests.get("https://pastebin.com/raw/MPvHRrSm")
+        a = request1.text
+        api9=api9+1
+    key = a
+    if tipo == None:
+        await ctx.send("Debe digitar una placa")
+    else:
+        sol_res=sol_res-1
+        
 bot.run(os.environ['DISCORD_TOKEN'])
-

@@ -502,8 +502,6 @@ async def placa(ctx, placa=None):
         response = requests.get(url, headers=headers, data=payload)
         if response.status_code != 200:
             await ctx.send("Ha ocurrido un error o proporcionaste informacion incorrecta.")
-            await ctx.send(response.text)
-            await ctx.send(response)
         else:
             j = response.json()
             placa = j['data']['vehiculo']['placa']

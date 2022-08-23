@@ -1,4 +1,4 @@
-﻿import requests
+import requests
 import os
 import json
 import discord
@@ -8,23 +8,29 @@ import random
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='>', intents=intents)
-sol_res = 50
+sol_res = 39
+api1 = 0
+api2 = 0
+api3 = 0
+#https://pastebin.com/raw/GZPEU63h
+#https://pastebin.com/raw/YV77G3yQ
+#https://pastebin.com/raw/3qDWsxFi
+#
 @bot.command(case_insensitive=True)
 async def nombres(ctx, tipo=None, numero=None):
-    global sol_res
-    b = random.randint(1,4)
-    if b == 1:
-        request1 = requests.get("https://pastebin.com/raw/rtHLA0wt")
-        a = request1.text
-    if b == 2:
+    global sol_res, api1, api2, api3
+    if api1 < 13:
         request1 = requests.get("https://pastebin.com/raw/GZPEU63h")
         a = request1.text
-    if b == 3:
+        api1=api1+1
+    elif api2 < 13:
         request1 = requests.get("https://pastebin.com/raw/YV77G3yQ")
         a = request1.text
-    if b == 4:
+        api2=api2+1
+    elif api3 < 13:
         request1 = requests.get("https://pastebin.com/raw/3qDWsxFi")
         a = request1.text
+        api3=api3+1
     key = a
     if tipo == None:
         await ctx.send("Debe un tipo de documento CC, CE")
@@ -61,20 +67,19 @@ async def nombres(ctx, tipo=None, numero=None):
 
 @bot.command(case_insensitive=True)
 async def vehiculo(ctx, tipo=None, numero=None, placa=None):
-    global sol_res
-    b = random.randint(1,4)
-    if b == 1:
-        request1 = requests.get("https://pastebin.com/raw/rtHLA0wt")
-        a = request1.text
-    if b == 2:
+    global sol_res, api1, api2, api3
+    if api1 < 13:
         request1 = requests.get("https://pastebin.com/raw/GZPEU63h")
         a = request1.text
-    if b == 3:
+        api1=api1+1
+    elif api2 < 13:
         request1 = requests.get("https://pastebin.com/raw/YV77G3yQ")
         a = request1.text
-    if b == 4:
+        api2=api2+1
+    elif api3 < 13:
         request1 = requests.get("https://pastebin.com/raw/3qDWsxFi")
         a = request1.text
+        api3=api3+1
     key = a
     if tipo == None:
         await ctx.send("Debe un tipo de documento CC, CE, TI, PA, RC")
@@ -152,20 +157,19 @@ async def vehiculo(ctx, tipo=None, numero=None, placa=None):
 
 @bot.command()
 async def conductor(ctx, tipo=None, numero=None):
-    global sol_res
-    b = random.randint(1,4)
-    if b == 1:
-        request1 = requests.get("https://pastebin.com/raw/rtHLA0wt")
-        a = request1.text
-    if b == 2:
+    global sol_res, api1, api2, api3
+    if api1 < 13:
         request1 = requests.get("https://pastebin.com/raw/GZPEU63h")
         a = request1.text
-    if b == 3:
+        api1=api1+1
+    elif api2 < 13:
         request1 = requests.get("https://pastebin.com/raw/YV77G3yQ")
         a = request1.text
-    if b == 4:
+        api2=api2+1
+    elif api3 < 13:
         request1 = requests.get("https://pastebin.com/raw/3qDWsxFi")
         a = request1.text
+        api3=api3+1
     key = a
     if tipo == None:
         await ctx.send("Debe un tipo de documento CC, CE")
@@ -220,20 +224,19 @@ async def conductor(ctx, tipo=None, numero=None):
 
 @bot.command()
 async def afiliaciones(ctx, tipo=None, numero=None, fecha=None):
-    global sol_res
-    b = random.randint(1,4)
-    if b == 1:
-        request1 = requests.get("https://pastebin.com/raw/rtHLA0wt")
-        a = request1.text
-    if b == 2:
+    global sol_res, api1, api2, api3
+    if api1 < 13:
         request1 = requests.get("https://pastebin.com/raw/GZPEU63h")
         a = request1.text
-    if b == 3:
+        api1=api1+1
+    elif api2 < 13:
         request1 = requests.get("https://pastebin.com/raw/YV77G3yQ")
         a = request1.text
-    if b == 4:
+        api2=api2+1
+    elif api3 < 13:
         request1 = requests.get("https://pastebin.com/raw/3qDWsxFi")
         a = request1.text
+        api3=api3+1
     key = a
     if tipo == None:
         await ctx.send("Debe un tipo de documento CC, PA, CE, PEP, TI.")
@@ -298,7 +301,7 @@ async def afiliaciones(ctx, tipo=None, numero=None, fecha=None):
 
 @bot.command()
 async def comandos(ctx):
-
+    global sol_res
     embed = discord.Embed(
         title='DoxColBot',
         description='Desarrolado por nicolas.5301\n https://instagram.com/nicolas.5301',
@@ -326,26 +329,24 @@ async def solicitudes(ctx):
     await ctx.send(f"Le quedan {sol_res}/50 solictudes restantes")
 @bot.command()
 async def borrar(ctx):
-    global sol_res
     await ctx.channel.purge(limit=None)
 
 
 @bot.command()
 async def placa(ctx, placa=None):
-    global sol_res
-    b = random.randint(1,4)
-    if b == 1:
-        request1 = requests.get("https://pastebin.com/raw/rtHLA0wt")
-        a = request1.text
-    if b == 2:
+    global sol_res, api1, api2, api3
+    if api1 < 13:
         request1 = requests.get("https://pastebin.com/raw/GZPEU63h")
         a = request1.text
-    if b == 3:
+        api1=api1+1
+    elif api2 < 13:
         request1 = requests.get("https://pastebin.com/raw/YV77G3yQ")
         a = request1.text
-    if b == 4:
+        api2=api2+1
+    elif api3 < 13:
         request1 = requests.get("https://pastebin.com/raw/3qDWsxFi")
         a = request1.text
+        api3=api3+1
     key = a
     if placa == None:
         await ctx.send("Debe introducir una placa XXXXXX")
@@ -418,3 +419,4 @@ async def placa(ctx, placa=None):
 
 
 bot.run(os.environ['DISCORD_TOKEN'])
+

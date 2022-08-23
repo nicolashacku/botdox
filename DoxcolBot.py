@@ -428,7 +428,7 @@ async def comandos(ctx):
 @bot.command()
 async def solicitudes(ctx):
     global sol_res
-    await ctx.send(f"Le quedan {sol_res}/50 solictudes restantes")
+    await ctx.send(f"Le quedan {sol_res}/135 solictudes restantes")
 @bot.command()
 async def borrar(ctx):
     await ctx.channel.purge(limit=None)

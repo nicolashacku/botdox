@@ -8,8 +8,8 @@ import random
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='>', intents=intents)
-sol_res = 135
-api1 = 0
+sol_res = 128
+api1 = 8
 api2 = 0
 api3 = 0
 api4 = 0
@@ -274,6 +274,20 @@ async def conductor(ctx, tipo=None, numero=None):
             pazNumber = j['data']['transitTaxes']['paceAndSafeNumber']
             transitTaxesNumber = j['data']['transitTaxes']['transitTaxesNumber']
             suspensiones = j['data']['transitTaxes']['suspensionDate']
+            if "licencias" in response.text:
+                example = json.loads(response.text)
+                a = example['data']['licencias']
+                b = str(a)
+                words = b.split()
+                x=0
+                for i in words:
+                    if x == 1:
+                        numeroLic = i
+                        numeroLic = re.sub("\'|\,","",numeroLic)
+                    if x == 9:
+                        status = i
+                        status = re.sub("\'|\,","",status)
+                    x=x+1
 
             embed = discord.Embed(
                 colour=discord.Colour.blue()
@@ -294,6 +308,8 @@ async def conductor(ctx, tipo=None, numero=None):
                             value=f'{transitTaxesNumber}', inline=True)
             embed.add_field(name=f'Numero de suspensiones',
                             value=f'{suspensiones}', inline=True)
+            embed.add_field(name=f'Numero De Licencia', value=f'{numeroLic}', inline=False)
+            embed.add_field(name=f'Status Licencia', value=f'{status}', inline=True)
             embed.add_field(name=f'Solicitudes Restantes', value=f'{sol_res}', inline=False)
             embed.set_footer(
                 text='Desarrollado por https://instagram.com/nicolas.5301')
@@ -428,7 +444,7 @@ async def comandos(ctx):
 @bot.command()
 async def solicitudes(ctx):
     global sol_res
-    await ctx.send(f"Le quedan {sol_res}/135 solictudes restantes")
+    await ctx.send(f"Le quedan {sol_res}/150 solictudes restantes")
 @bot.command()
 async def borrar(ctx):
     await ctx.channel.purge(limit=None)

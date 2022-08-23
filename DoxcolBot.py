@@ -11,6 +11,7 @@ bot = commands.Bot(command_prefix='>', intents=intents)
 sol_res = 50
 @bot.command(case_insensitive=True)
 async def nombres(ctx, tipo=None, numero=None):
+    global sol_res
     b = random.randint(1,4)
     if b == 1:
         request1 = requests.get("https://pastebin.com/raw/rtHLA0wt")
@@ -60,6 +61,7 @@ async def nombres(ctx, tipo=None, numero=None):
 
 @bot.command(case_insensitive=True)
 async def vehiculo(ctx, tipo=None, numero=None, placa=None):
+    global sol_res
     b = random.randint(1,4)
     if b == 1:
         request1 = requests.get("https://pastebin.com/raw/rtHLA0wt")
@@ -150,6 +152,7 @@ async def vehiculo(ctx, tipo=None, numero=None, placa=None):
 
 @bot.command()
 async def conductor(ctx, tipo=None, numero=None):
+    global sol_res
     b = random.randint(1,4)
     if b == 1:
         request1 = requests.get("https://pastebin.com/raw/rtHLA0wt")
@@ -217,6 +220,7 @@ async def conductor(ctx, tipo=None, numero=None):
 
 @bot.command()
 async def afiliaciones(ctx, tipo=None, numero=None, fecha=None):
+    global sol_res
     b = random.randint(1,4)
     if b == 1:
         request1 = requests.get("https://pastebin.com/raw/rtHLA0wt")
@@ -318,14 +322,17 @@ async def comandos(ctx):
 
 @bot.command()
 async def solicitudes(ctx):
+    global sol_res
     await ctx.send(f"Le quedan {sol_res}/50 solictudes restantes")
 @bot.command()
 async def borrar(ctx):
+    global sol_res
     await ctx.channel.purge(limit=None)
 
 
 @bot.command()
 async def placa(ctx, placa=None):
+    global sol_res
     b = random.randint(1,4)
     if b == 1:
         request1 = requests.get("https://pastebin.com/raw/rtHLA0wt")

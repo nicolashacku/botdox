@@ -4,70 +4,71 @@ import json
 import discord
 from discord.ext import commands
 import re
-import random
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='>', intents=intents)
-sol_res = 126
-api1 = 11
-api2 = 0
+sol_res = 118
+api1 = 15
+api2 = 13
 api3 = 0
 api4 = 0
-api5= 0
-api6 =0
-api7 =0
-api8  = 0
+api5 = 0
+api6 = 0
+api7 = 0
+api8 = 0
 api9 = 0
-#https://pastebin.com/raw/GZPEU63h
-#https://pastebin.com/raw/YV77G3yQ
-#https://pastebin.com/raw/3qDWsxFi
+# https://pastebin.com/raw/GZPEU63h
+# https://pastebin.com/raw/YV77G3yQ
+# https://pastebin.com/raw/3qDWsxFi
 #
+
+
 @bot.command(case_insensitive=True)
 async def nombres(ctx, tipo=None, numero=None):
-    global sol_res, api1, api2, api3, api4, api5, api6, api7 ,api8, api9
+    global sol_res, api1, api2, api3, api4, api5, api6, api7, api8, api9
     if api1 < 15:
         request1 = requests.get("https://pastebin.com/raw/JgrikEEF")
         a = request1.text
-        api1=api1+1
+        api1 = api1+1
     elif api2 < 15:
         request1 = requests.get("https://pastebin.com/raw/P1JCUPDb")
         a = request1.text
-        api2=api2+1
+        api2 = api2+1
     elif api3 < 15:
         request1 = requests.get("https://pastebin.com/raw/MPvHRrSm")
         a = request1.text
-        api3=api3+1
+        api3 = api3+1
     elif api4 < 15:
         request1 = requests.get("https://pastebin.com/raw/cdGBJ396")
         a = request1.text
-        api4=api4+1
+        api4 = api4+1
     elif api5 < 15:
         request1 = requests.get("https://pastebin.com/raw/2VQNYEqe")
         a = request1.text
-        api5=api5+1
+        api5 = api5+1
     elif api6 < 15:
         request1 = requests.get("https://pastebin.com/raw/uK2Mcbys")
         a = request1.text
-        api6=api6+1
+        api6 = api6+1
     elif api7 < 15:
         request1 = requests.get("https://pastebin.com/raw/0QbWu5AA")
         a = request1.text
-        api7=api7+1
+        api7 = api7+1
     elif api8 < 15:
         request1 = requests.get("https://pastebin.com/raw/iCC44qHk")
         a = request1.text
-        api8=api8+1
+        api8 = api8+1
     elif api9 < 15:
         request1 = requests.get("https://pastebin.com/raw/MPvHRrSm")
         a = request1.text
-        api9=api9+1
+        api9 = api9+1
     key = a
     if tipo == None:
         await ctx.send("Debe un tipo de documento CC, CE")
     elif numero == None:
         await ctx.send("Debe digitar un numero de identifiacion")
     else:
-        sol_res= sol_res-1
+        sol_res = sol_res-1
         url = f"https://api.verifik.co/v2/co/cedula?documentType={tipo}&documentNumber={numero}"
         payload = {}
         headers = {
@@ -85,11 +86,10 @@ async def nombres(ctx, tipo=None, numero=None):
                 colour=discord.Colour.blue()
 
             )
-            embed.add_field(name=f'Nombre Completo',
-                            value=f'{fullName}', inline=False)
+            embed.add_field(name=f'Nombre Completo',value=f'{fullName}', inline=False)
             embed.add_field(name=f'Nombres', value=f'{firstName}', inline=True)
             embed.add_field(name=f'Apellido', value=f'{lastName}', inline=True)
-            embed.add_field(name=f'Solicitudes Restantes', value=f'{sol_res}', inline=False)
+            embed.add_field(name=f'Solicitudes Restantes',value=f'{sol_res}', inline=False)
             embed.set_footer(
                 text='Desarrollado por https://instagram.com/nicolas.5301')
             await ctx.send(embed=embed)
@@ -97,43 +97,43 @@ async def nombres(ctx, tipo=None, numero=None):
 
 @bot.command(case_insensitive=True)
 async def vehiculo(ctx, tipo=None, numero=None, placa=None):
-    global sol_res, api1, api2, api3, api4, api5, api6, api7 ,api8, api9
+    global sol_res, api1, api2, api3, api4, api5, api6, api7, api8, api9
     if api1 < 15:
         request1 = requests.get("https://pastebin.com/raw/JgrikEEF")
         a = request1.text
-        api1=api1+1
+        api1 = api1+1
     elif api2 < 15:
         request1 = requests.get("https://pastebin.com/raw/P1JCUPDb")
         a = request1.text
-        api2=api2+1
+        api2 = api2+1
     elif api3 < 15:
         request1 = requests.get("https://pastebin.com/raw/MPvHRrSm")
         a = request1.text
-        api3=api3+1
+        api3 = api3+1
     elif api4 < 15:
         request1 = requests.get("https://pastebin.com/raw/cdGBJ396")
         a = request1.text
-        api4=api4+1
+        api4 = api4+1
     elif api5 < 15:
         request1 = requests.get("https://pastebin.com/raw/2VQNYEqe")
         a = request1.text
-        api5=api5+1
+        api5 = api5+1
     elif api6 < 15:
         request1 = requests.get("https://pastebin.com/raw/uK2Mcbys")
         a = request1.text
-        api6=api6+1
+        api6 = api6+1
     elif api7 < 15:
         request1 = requests.get("https://pastebin.com/raw/0QbWu5AA")
         a = request1.text
-        api7=api7+1
+        api7 = api7+1
     elif api8 < 15:
         request1 = requests.get("https://pastebin.com/raw/iCC44qHk")
         a = request1.text
-        api8=api8+1
+        api8 = api8+1
     elif api9 < 15:
         request1 = requests.get("https://pastebin.com/raw/MPvHRrSm")
         a = request1.text
-        api9=api9+1
+        api9 = api9+1
     key = a
     if tipo == None:
         await ctx.send("Debe un tipo de documento CC, CE, TI, PA, RC")
@@ -142,7 +142,7 @@ async def vehiculo(ctx, tipo=None, numero=None, placa=None):
     elif placa == None:
         await ctx.send("Debe digitar la placa del vehiculo XXXXXX")
     else:
-        sol_res=sol_res-1
+        sol_res = sol_res-1
         url = f"https://api.verifik.co/v2/co/runt/vehiculo?documentType={tipo}&documentNumber={numero}&plate={placa}"
         payload = {}
         headers = {
@@ -181,29 +181,21 @@ async def vehiculo(ctx, tipo=None, numero=None, placa=None):
             embed.add_field(name=f'placa', value=f'{placa}', inline=False)
             embed.add_field(name=f'color', value=f'{color}', inline=True)
             embed.add_field(name=f'marca', value=f'{marca}', inline=True)
-            embed.add_field(name=f'activacion',
-                            value=f'{activacion}', inline=True)
+            embed.add_field(name=f'activacion',value=f'{activacion}', inline=True)
             embed.add_field(name=f'status', value=f'{status}', inline=True)
-            embed.add_field(name=f'numero SOAT',
-                            value=f'{numeroSoat}', inline=True)
-            embed.add_field(name=f'Expedicion Soat',
-                            value=f'{expedicionSoat}', inline=True)
-            embed.add_field(name=f'Vencimiento Soat',
-                            value=f'{vecimientoSoat}', inline=True)
-            embed.add_field(name=f'Tecnomecanica',
-                            value=f'{tecnomecanica}', inline=True)
-            embed.add_field(name=f'Numero Tecnomecanica',
-                            value=f'{numeroTecno}', inline=True)
-            embed.add_field(name=f'Expedicion Tecno',
-                            value=f'{expedicionTecno}', inline=True)
-            embed.add_field(name=f'Vencimiento Tecno',
-                            value=f'{vencimientoTecno}', inline=True)
+            embed.add_field(name=f'numero SOAT',value=f'{numeroSoat}', inline=True)
+            embed.add_field(name=f'Expedicion Soat',value=f'{expedicionSoat}', inline=True)
+            embed.add_field(name=f'Vencimiento Soat',value=f'{vecimientoSoat}', inline=True)
+            embed.add_field(name=f'Tecnomecanica',value=f'{tecnomecanica}', inline=True)
+            embed.add_field(name=f'Numero Tecnomecanica',value=f'{numeroTecno}', inline=True)
+            embed.add_field(name=f'Expedicion Tecno',value=f'{expedicionTecno}', inline=True)
+            embed.add_field(name=f'Vencimiento Tecno',value=f'{vencimientoTecno}', inline=True)
             #embed.add_field(name=f'Tipo Servicio', value =f'{tipoServicio}',inline=True)
             #embed.add_field(name=f'Numero Motor', value =f'{numMotor}',inline=True)
             #embed.add_field(name=f'Numero chasis', value =f'{numChasis}',inline=True)
             #embed.add_field(name=f'Cilindraje', value =f'{cilindraje}',inline=True)
             #embed.add_field(name=f'Limite ocupantes', value =f'{ocupantes}',inline=True)
-            embed.add_field(name=f'Solicitudes Restantes', value=f'{sol_res}', inline=False)
+            embed.add_field(name=f'Solicitudes Restantes',value=f'{sol_res}', inline=False)
             embed.set_footer(
                 text='Desarrollado por https://instagram.com/nicolas.5301')
             await ctx.send(embed=embed)
@@ -211,50 +203,50 @@ async def vehiculo(ctx, tipo=None, numero=None, placa=None):
 
 @bot.command()
 async def conductor(ctx, tipo=None, numero=None):
-    global sol_res, api1, api2, api3, api4, api5, api6, api7 ,api8, api9
+    global sol_res, api1, api2, api3, api4, api5, api6, api7, api8, api9
     if api1 < 15:
         request1 = requests.get("https://pastebin.com/raw/JgrikEEF")
         a = request1.text
-        api1=api1+1
+        api1 = api1+1
     elif api2 < 15:
         request1 = requests.get("https://pastebin.com/raw/P1JCUPDb")
         a = request1.text
-        api2=api2+1
+        api2 = api2+1
     elif api3 < 15:
         request1 = requests.get("https://pastebin.com/raw/MPvHRrSm")
         a = request1.text
-        api3=api3+1
+        api3 = api3+1
     elif api4 < 15:
         request1 = requests.get("https://pastebin.com/raw/cdGBJ396")
         a = request1.text
-        api4=api4+1
+        api4 = api4+1
     elif api5 < 15:
         request1 = requests.get("https://pastebin.com/raw/2VQNYEqe")
         a = request1.text
-        api5=api5+1
+        api5 = api5+1
     elif api6 < 15:
         request1 = requests.get("https://pastebin.com/raw/uK2Mcbys")
         a = request1.text
-        api6=api6+1
+        api6 = api6+1
     elif api7 < 15:
         request1 = requests.get("https://pastebin.com/raw/0QbWu5AA")
         a = request1.text
-        api7=api7+1
+        api7 = api7+1
     elif api8 < 15:
         request1 = requests.get("https://pastebin.com/raw/iCC44qHk")
         a = request1.text
-        api8=api8+1
+        api8 = api8+1
     elif api9 < 15:
         request1 = requests.get("https://pastebin.com/raw/MPvHRrSm")
         a = request1.text
-        api9=api9+1
+        api9 = api9+1
     key = a
     if tipo == None:
         await ctx.send("Debe un tipo de documento CC, CE")
     elif numero == None:
         await ctx.send("Debe digitar un numero de identifiacion")
     else:
-        sol_res=sol_res-1
+        sol_res = sol_res-1
         url = f"https://api.verifik.co/v2/co/runt/consultarConductor?documentType={tipo}&documentNumber={numero}"
         payload = {}
         headers = {
@@ -279,38 +271,32 @@ async def conductor(ctx, tipo=None, numero=None):
                 a = example['data']['licencias']
                 b = str(a)
                 words = b.split()
-                x=0
+                x = 0
                 for i in words:
                     if x == 1:
                         numeroLic = i
-                        numeroLic = re.sub("\'|\,","",numeroLic)
+                        numeroLic = re.sub("\'|\,", "", numeroLic)
                     if x == 9:
                         status = i
-                        status = re.sub("\'|\,","",status)
-                    x=x+1
+                        status = re.sub("\'|\,", "", status)
+                    x = x+1
 
             embed = discord.Embed(
                 colour=discord.Colour.blue()
 
             )
-            embed.add_field(name=f'Nombre Completo',
-                            value=f'{fullName}', inline=False)
-            embed.add_field(name=f'Total de licencias',
-                            value=f'{totalLicencias}', inline=True)
+            embed.add_field(name=f'Nombre Completo',value=f'{fullName}', inline=False)
+            embed.add_field(name=f'Total de licencias',value=f'{totalLicencias}', inline=True)
             #embed.add_field(name=f'Numero licencia', value =f'{numeroLicencia}',inline=True)
             #embed.add_field(name=f'Estado licencia', value =f'{statusLicencias}',inline=True)
             #embed.add_field(name=f'Vencimiento licencia', value =f'{vencimientoLicencia}',inline=True)
-            embed.add_field(name=f'Paz y Salvo',
-                            value=f'{pazandSafe}', inline=True)
-            embed.add_field(name=f'Numero paz y salvo',
-                            value=f'{pazNumber}', inline=True)
-            embed.add_field(name=f'Numero de impuestos',
-                            value=f'{transitTaxesNumber}', inline=True)
-            embed.add_field(name=f'Numero de suspensiones',
-                            value=f'{suspensiones}', inline=True)
-            embed.add_field(name=f'Numero De Licencia', value=f'{numeroLic}', inline=True)
-            embed.add_field(name=f'Status Licencia', value=f'{status}', inline=True)
-            embed.add_field(name=f'Solicitudes Restantes', value=f'{sol_res}', inline=False)
+            embed.add_field(name=f'Paz y Salvo',value=f'{pazandSafe}', inline=True)
+            embed.add_field(name=f'Numero paz y salvo',value=f'{pazNumber}', inline=True)
+            embed.add_field(name=f'Numero de impuestos',value=f'{transitTaxesNumber}', inline=True)
+            embed.add_field(name=f'Numero de suspensiones',value=f'{suspensiones}', inline=True)
+            embed.add_field(name=f'Numero De Licencia',value=f'{numeroLic}', inline=False)
+            embed.add_field(name=f'Status Licencia',value=f'{status}', inline=True)
+            embed.add_field(name=f'Solicitudes Restantes',value=f'{sol_res}', inline=False)
             embed.set_footer(
                 text='Desarrollado por https://instagram.com/nicolas.5301')
             await ctx.send(embed=embed)
@@ -318,43 +304,43 @@ async def conductor(ctx, tipo=None, numero=None):
 
 @bot.command()
 async def afiliaciones(ctx, tipo=None, numero=None, fecha=None):
-    global sol_res, api1, api2, api3, api4, api5, api6, api7 ,api8, api9
+    global sol_res, api1, api2, api3, api4, api5, api6, api7, api8, api9
     if api1 < 15:
         request1 = requests.get("https://pastebin.com/raw/JgrikEEF")
         a = request1.text
-        api1=api1+1
+        api1 = api1+1
     elif api2 < 15:
         request1 = requests.get("https://pastebin.com/raw/P1JCUPDb")
         a = request1.text
-        api2=api2+1
+        api2 = api2+1
     elif api3 < 15:
         request1 = requests.get("https://pastebin.com/raw/MPvHRrSm")
         a = request1.text
-        api3=api3+1
+        api3 = api3+1
     elif api4 < 15:
         request1 = requests.get("https://pastebin.com/raw/cdGBJ396")
         a = request1.text
-        api4=api4+1
+        api4 = api4+1
     elif api5 < 15:
         request1 = requests.get("https://pastebin.com/raw/2VQNYEqe")
         a = request1.text
-        api5=api5+1
+        api5 = api5+1
     elif api6 < 15:
         request1 = requests.get("https://pastebin.com/raw/uK2Mcbys")
         a = request1.text
-        api6=api6+1
+        api6 = api6+1
     elif api7 < 15:
         request1 = requests.get("https://pastebin.com/raw/0QbWu5AA")
         a = request1.text
-        api7=api7+1
+        api7 = api7+1
     elif api8 < 15:
         request1 = requests.get("https://pastebin.com/raw/iCC44qHk")
         a = request1.text
-        api8=api8+1
+        api8 = api8+1
     elif api9 < 15:
         request1 = requests.get("https://pastebin.com/raw/MPvHRrSm")
         a = request1.text
-        api9=api9+1
+        api9 = api9+1
     key = a
     if tipo == None:
         await ctx.send("Debe un tipo de documento CC, PA, CE, PEP, TI.")
@@ -363,7 +349,7 @@ async def afiliaciones(ctx, tipo=None, numero=None, fecha=None):
     elif fecha == None:
         await ctx.send("Debe digitar una fecha de nacimiento")
     else:
-        sol_res = sol_res -1
+        sol_res = sol_res - 1
         url = f"https://api.verifik.co/v2/co/afiliaciones?documentType={tipo}&documentNumber={numero}&date={fecha}"
         payload = {}
         headers = {
@@ -374,49 +360,44 @@ async def afiliaciones(ctx, tipo=None, numero=None, fecha=None):
             await ctx.send("Ha ocurrido un error o proporcionaste informacion incorrecta.")
         else:
             j = response.json()
-            fechaCorte = j['data']['informacionPersonal']['fechaCorte']
-            primerNombre = j['data']['informacionPersonal']['primerNombre']
-            segundoNombre = j['data']['informacionPersonal']['segundoNombre']
-            primerApellido = j['data']['informacionPersonal']['primerApellido']
-            segundoApellido = j['data']['informacionPersonal']['segundoApellido']
-            sexo = j['data']['informacionPersonal']['sexo']
-            eps = j['data']['eps']['eps']
-            regimen = j['data']['eps']['regimen']
-            fechaAfiliacion = j['data']['eps']['fechaAfiliacion']
-            estadoAfiliacion = j['data']['eps']['estadoAfiliacion']
-            fechaAfiliacion = j['data']['eps']['fechaAfiliacion']
-            tipoAfiliado = j['data']['eps']['tipoAfiliado']
             embed = discord.Embed(
                 colour=discord.Colour.blue()
 
             )
-            embed.add_field(name=f'Fecha corte',
-                            value=f'{fechaCorte}', inline=False)
-            embed.add_field(name=f'Primer nombre',
-                            value=f'{primerNombre}', inline=True)
-            embed.add_field(name=f'Segundo Nombre',
-                            value=f'{segundoNombre}', inline=True)
-            embed.add_field(name=f'Primer apellido',
-                            value=f'{primerApellido}', inline=True)
-            embed.add_field(name=f'Segundo apellido',
-                            value=f'{segundoApellido}', inline=True)
-            embed.add_field(name=f'sexo', value=f'{sexo}', inline=False)
-            embed.add_field(name=f'Eps', value=f'{eps}', inline=True)
-            embed.add_field(name=f'Regimen', value=f'{regimen}', inline=True)
-            embed.add_field(name=f'Fecha afiliacion',
-                            value=f'{fechaAfiliacion}', inline=False)
-            embed.add_field(name=f'Estado afiliacion',
-                            value=f'{estadoAfiliacion}', inline=False)
-            embed.add_field(name=f'Fecha afiliacion',
-                            value=f'{fechaAfiliacion}', inline=True)
-            embed.add_field(name=f'Tipo Afiliado',
-                            value=f'{tipoAfiliado}', inline=True)
-            embed.add_field(name=f'Solicitudes Restantes', value=f'{sol_res}', inline=False)
+            class Persona:
+                def __init__(self):
+                    self.fechaDeCorte = j['data']['informacionPersonal']['fechaCorte']
+                    self.firstName = j['data']['informacionPersonal']['primerNombre']
+                    self.secondName = j['data']['informacionPersonal']['segundoNombre']
+                    self.lastName = j['data']['informacionPersonal']['primerApellido']
+                    self.secondLastName = j['data']['informacionPersonal']['segundoApellido']
+                    self.sexo = j['data']['informacionPersonal']['sexo']
+                    self.eps = j['data']['eps']['eps']
+                    self.regimen = j['data']['eps']['regimen']
+                    self.FechaAfiliacion = j['data']['eps']['fechaAfiliacion']
+                    self.EstadoAfiliacion = j['data']['eps']['estadoAfiliacion']
+                    self.tipoDeAfiliacion = j['data']['eps']['tipoAfiliado']
+            persona = Persona()
+            embed.add_field(name=f'Fecha corte',value=f'{persona.fechaDeCorte}', inline=False)
+            embed.add_field(name=f'Primer nombre',value=f'{persona.firstName}', inline=True)
+            embed.add_field(name=f'Segundo Nombre',value=f'{persona.secondName}', inline=True)
+            embed.add_field(name=f'Primer apellido',value=f'{persona.lastname}', inline=True)
+            embed.add_field(name=f'Segundo apellido',value=f'{persona.secondLastName}', inline=True)
+            embed.add_field(name=f'persona.firstName',value=f'{persona.sexo}', inline=False)
+            embed.add_field(name=f'Eps', value=f'{persona.eps}', inline=True)
+            embed.add_field(name=f'Regimen',value=f'{persona.regimen}', inline=True)
+            embed.add_field(name=f'Fecha afiliacion',value=f'{persona.FechaAfiliacion}', inline=False)
+            embed.add_field(name=f'Estado afiliacion',value=f'{persona.EstadoAfiliacion}', inline=False)
+            embed.add_field(name=f'Fecha afiliacion',value=f'{persona.FechaAfiliacion}', inline=True)
+            embed.add_field(name=f'Tipo Afiliado',value=f'{persona.tipoDeAfiliacion}', inline=True)
+            embed.add_field(name=f'Solicitudes Restantes',value=f'{sol_res}', inline=False)
             embed.set_footer(
                 text='Desarrollado por https://instagram.com/nicolas.5301')
             await ctx.send(embed=embed)
 
-
+@bot.command()
+async def apisstatus(ctx):
+    await ctx.send(api1,api2,api3,api4,api5,api6,api7,api8,api9,sep=",")
 @bot.command()
 async def comandos(ctx):
     global sol_res
@@ -438,13 +419,17 @@ async def comandos(ctx):
         name='>placa', value='Consulta infromacion por la placa', inline=False)
     embed.add_field(
         name='>solicitudes', value='Muestra cuantas solictudes le qudan al bot', inline=False)
+    embed.add_field(name=">apisstatus", value="Muestra cuantas solis le queda a cada api", inline=False)
 
     await ctx.send(embed=embed)
+
 
 @bot.command()
 async def solicitudes(ctx):
     global sol_res
     await ctx.send(f"Le quedan {sol_res}/150 solictudes restantes")
+
+
 @bot.command()
 async def borrar(ctx):
     await ctx.channel.purge(limit=None)
@@ -452,48 +437,48 @@ async def borrar(ctx):
 
 @bot.command()
 async def placa(ctx, placa=None):
-    global sol_res, api1, api2, api3, api4, api5, api6, api7 ,api8, api9
+    global sol_res, api1, api2, api3, api4, api5, api6, api7, api8, api9
     if api1 < 15:
         request1 = requests.get("https://pastebin.com/raw/JgrikEEF")
         a = request1.text
-        api1=api1+1
+        api1 = api1+1
     elif api2 < 15:
         request1 = requests.get("https://pastebin.com/raw/P1JCUPDb")
         a = request1.text
-        api2=api2+1
+        api2 = api2+1
     elif api3 < 15:
         request1 = requests.get("https://pastebin.com/raw/MPvHRrSm")
         a = request1.text
-        api3=api3+1
+        api3 = api3+1
     elif api4 < 15:
         request1 = requests.get("https://pastebin.com/raw/cdGBJ396")
         a = request1.text
-        api4=api4+1
+        api4 = api4+1
     elif api5 < 15:
         request1 = requests.get("https://pastebin.com/raw/2VQNYEqe")
         a = request1.text
-        api5=api5+1
+        api5 = api5+1
     elif api6 < 15:
         request1 = requests.get("https://pastebin.com/raw/uK2Mcbys")
         a = request1.text
-        api6=api6+1
+        api6 = api6+1
     elif api7 < 15:
         request1 = requests.get("https://pastebin.com/raw/0QbWu5AA")
         a = request1.text
-        api7=api7+1
+        api7 = api7+1
     elif api8 < 15:
         request1 = requests.get("https://pastebin.com/raw/iCC44qHk")
         a = request1.text
-        api8=api8+1
+        api8 = api8+1
     elif api9 < 15:
         request1 = requests.get("https://pastebin.com/raw/MPvHRrSm")
         a = request1.text
-        api9=api9+1
+        api9 = api9+1
     key = a
     if placa == None:
         await ctx.send("Debe introducir una placa XXXXXX")
     else:
-        sol_res=sol_res-1
+        sol_res = sol_res-1
         url = f"https://api.verifik.co/v2/co/soat/consultarVehiculo?plate={placa}"
         payload = {}
         headers = {
@@ -502,104 +487,58 @@ async def placa(ctx, placa=None):
         response = requests.get(url, headers=headers, data=payload)
         if response.status_code != 200:
             await ctx.send("Ha ocurrido un error o proporcionaste informacion incorrecta.")
+            await ctx.send(response.text)
+            await ctx.send(response)
         else:
             j = response.json()
-            placa = j['data']['vehiculo']['placa']
-            modelo = j['data']['vehiculo']['modelo']
-            numeroChasis = j['data']['vehiculo']['numeroChasis']
-            marca = j['data']['vehiculo']['marca']
-            linea = j['data']['vehiculo']['linea']
-            claseVehiculo = j['data']['vehiculo']['claseVehiculo']
-            #tipoDoc = j['data']['propietarios']['tipoDocumento']
-            #noDocumento = j['data']['propietarios']
-            #nombreCompleto = j['data']['propietarios']['nombreCompleto']
             doc = json.loads(response.text)
             a = doc['data']['propietarios']
             b = str(a)
             words = b.split()
-            x=0
+            x = 0
             for i in words:
                 if x == 15:
                     primerNombre = i
-                    primerNombre = re.sub("\'|\,","",primerNombre)
+                    primerNombre = re.sub("\'|\,", "", primerNombre)
                 if x == 19:
                     primerApellido = i
-                    primerApellido = re.sub("\'|\,","",primerApellido)
+                    primerApellido = re.sub("\'|\,", "", primerApellido)
                 if x == 21:
                     segundoApellido = i
-                    segundoApellido = re.sub("\'|\,","",segundoApellido)
+                    segundoApellido = re.sub("\'|\,", "", segundoApellido)
                 if x == 8:
                     numeroDoc = i
-                    numeroDoc = re.sub("\'|\,","",numeroDoc)
-                x=x+1
-
+                    numeroDoc = re.sub("\'|\,", "", numeroDoc)
+                x = x+1
+            class Carro:       
+                def __init__(self):
+                    self.numeroPlaca = j['data']['vehiculo']['placa']
+                    self.modeloCarro = j['data']['vehiculo']['modelo']
+                    self.numeroDelChasis = j['data']['vehiculo']['numeroChasis']
+                    self.marcaCarro = j['data']['vehiculo']['marca']
+                    self.lineaCarro = j['data']['vehiculo']['linea']
+                    self.ClaseDelCarro = j['data']['vehiculo']['claseVehiculo']
+                    self.numeroDocumento = numeroDoc
+                    self.primerNombrePropietario = primerNombre
+                    self.primerApellidoPropietario = primerApellido
+                    self.segundoApellidoPropietario = segundoApellido
             embed = discord.Embed(
                 colour=discord.Colour.blue()
-
             )
-            embed.add_field(name=f'PLaca',
-                            value=f'{placa}', inline=False)
-            embed.add_field(name=f'Modelo',
-                            value=f'{modelo}', inline=True)
-            embed.add_field(name=f'Numero Chasis',
-                            value=f'{numeroChasis}', inline=True)
-            embed.add_field(name=f'Marca',
-                            value=f'{marca}', inline=True)
-            embed.add_field(name=f'Linea',
-                            value=f'{linea}', inline=True)
-            embed.add_field(name=f'Clase Vehiculo', value=f'{claseVehiculo}', inline=True)
-            embed.add_field(name=f'Numero Documento', value=f'{numeroDoc}', inline=False)
-            embed.add_field(name=f'Primer Nombre', value=f'{primerNombre}', inline=True)
-            embed.add_field(name=f'Primer Apellido', value=f'{primerApellido}', inline=True)
-            embed.add_field(name=f'Segundo Apellido', value=f'{segundoApellido}', inline=True)
-            embed.add_field(name=f'Solicitudes Restantes', value=f'{sol_res}', inline=False)
+            carro = Carro()
+            embed.add_field(name=f'Placa',value=f'{carro.numeroPlaca}', inline=False)
+            embed.add_field(name=f'Modelo',value=f'{carro.modeloCarro}', inline=True)
+            embed.add_field(name=f'Numero Chasis',value=f'{carro.numeroDelChasis}', inline=True)
+            embed.add_field(name=f'Marca',value=f'{carro.marcaCarro}', inline=True)
+            embed.add_field(name=f'Linea',value=f'{carro.lineaCarro}', inline=True)
+            embed.add_field(name=f'Clase Vehiculo',value=f'{carro.ClaseDelCarro}', inline=True)
+            embed.add_field(name=f'Numero Documento',value=f'{carro.numeroDocumento}', inline=False)
+            embed.add_field(name=f'Primer Nombre',value=f'{carro.primerNombrePropietario}', inline=True)
+            embed.add_field(name=f'Primer Apellido',value=f'{carro.primerApellidoPropietario}', inline=True)
+            embed.add_field(name=f'Segundo Apellido',value=f'{carro.segundoApellidoPropietario}', inline=True)
+            embed.add_field(name=f'Solicitudes Restantes',value=f'{sol_res}', inline=False)
             embed.set_footer(
                 text='Desarrollado por https://instagram.com/nicolas.5301')
             await ctx.send(embed=embed)
 
-@bot.command(case_insensitive=True)
-async def placaperu(ctx, tipo=None, numero=None, placa=None):
-    global sol_res, api1, api2, api3, api4, api5, api6, api7 ,api8, api9
-    if api1 < 15:
-        request1 = requests.get("https://pastebin.com/raw/JgrikEEF")
-        a = request1.text
-        api1=api1+1
-    elif api2 < 15:
-        request1 = requests.get("https://pastebin.com/raw/P1JCUPDb")
-        a = request1.text
-        api2=api2+1
-    elif api3 < 15:
-        request1 = requests.get("https://pastebin.com/raw/MPvHRrSm")
-        a = request1.text
-        api3=api3+1
-    elif api4 < 15:
-        request1 = requests.get("https://pastebin.com/raw/cdGBJ396")
-        a = request1.text
-        api4=api4+1
-    elif api5 < 15:
-        request1 = requests.get("https://pastebin.com/raw/2VQNYEqe")
-        a = request1.text
-        api5=api5+1
-    elif api6 < 15:
-        request1 = requests.get("https://pastebin.com/raw/uK2Mcbys")
-        a = request1.text
-        api6=api6+1
-    elif api7 < 15:
-        request1 = requests.get("https://pastebin.com/raw/0QbWu5AA")
-        a = request1.text
-        api7=api7+1
-    elif api8 < 15:
-        request1 = requests.get("https://pastebin.com/raw/iCC44qHk")
-        a = request1.text
-        api8=api8+1
-    elif api9 < 15:
-        request1 = requests.get("https://pastebin.com/raw/MPvHRrSm")
-        a = request1.text
-        api9=api9+1
-    key = a
-    if tipo == None:
-        await ctx.send("Debe digitar una placa")
-    else:
-        sol_res=sol_res-1
-        
 bot.run(os.environ['DISCORD_TOKEN'])

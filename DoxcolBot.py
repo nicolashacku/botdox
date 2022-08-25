@@ -7,7 +7,7 @@ import re
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='>', intents=intents)
-sol_res = 118
+sol_res = 115
 api1 = 15
 api2 = 13
 api3 = 0
@@ -381,9 +381,9 @@ async def afiliaciones(ctx, tipo=None, numero=None, fecha=None):
             embed.add_field(name=f'Fecha corte',value=f'{persona.fechaDeCorte}', inline=False)
             embed.add_field(name=f'Primer nombre',value=f'{persona.firstName}', inline=True)
             embed.add_field(name=f'Segundo Nombre',value=f'{persona.secondName}', inline=True)
-            embed.add_field(name=f'Primer apellido',value=f'{persona.lastname}', inline=True)
+            embed.add_field(name=f'Primer apellido',value=f'{persona.lastName}', inline=True)
             embed.add_field(name=f'Segundo apellido',value=f'{persona.secondLastName}', inline=True)
-            embed.add_field(name=f'persona.firstName',value=f'{persona.sexo}', inline=False)
+            embed.add_field(name=f'Sexo',value=f'{persona.sexo}', inline=False)
             embed.add_field(name=f'Eps', value=f'{persona.eps}', inline=True)
             embed.add_field(name=f'Regimen',value=f'{persona.regimen}', inline=True)
             embed.add_field(name=f'Fecha afiliacion',value=f'{persona.FechaAfiliacion}', inline=False)

@@ -397,7 +397,7 @@ async def afiliaciones(ctx, tipo=None, numero=None, fecha=None):
 
 @bot.command()
 async def apisstatus(ctx):
-    await ctx.send(api1,api2,api3,api4,api5,api6,api7,api8,api9,sep=",")
+    await ctx.send(f"{api1},{api2},{api3},{api4},{api5},{api6},{api7},{api8},{api9}")
 @bot.command()
 async def comandos(ctx):
     global sol_res

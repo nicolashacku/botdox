@@ -573,5 +573,6 @@ async def tullave(ctx, numero=None):
             embed.add_field(name=f'Numero De Tarjeta:',value=f'{numeroTarjeta}', inline=False)
             embed.add_field(name=f'Saldo De La Tarjeta',value=f'{saldoTarjeta}', inline=True)
             embed.set_footer(text='Desarrollado por https://instagram.com/nicolas.5301')
+            await ctx.send(embed=embed)
 
 bot.run(os.environ['DISCORD_TOKEN'])

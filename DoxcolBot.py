@@ -7,11 +7,11 @@ import re
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='>', intents=intents)
-sol_res = 115
+sol_res = 81
 api1 = 15
-api2 = 13
-api3 = 0
-api4 = 0
+api2 = 15
+api3 = 15
+api4 = 15
 api5 = 0
 api6 = 0
 api7 = 0
@@ -540,5 +540,38 @@ async def placa(ctx, placa=None):
             embed.set_footer(
                 text='Desarrollado por https://instagram.com/nicolas.5301')
             await ctx.send(embed=embed)
+@bot.command()
+async def tullave(ctx, numero=None):
+    if numero == None:
+        await ctx.send("Debe digitar el numero de tarjeta...")
+    else:
+        url = "https://tmsa-transmiapp-shvpc.uc.r.appspot.com/lectura_tarjeta"
+        payload = {
+            "numero_tarjeta":f"{numero}",
+            "consultar":"true"
+        }
+        headers = {
+            'Content-Type':'application/json'
+        }
+        response = requests.post(url,headers=headers,json=payload)
+        if response.status_code != 200:
+            await ctx.send("Ha ocurrido un error o el numero de tarjeta es invalido.")
+        else:
+            words = str(json.loads(response.text)).split()
+            x=0
+            for i in words:
+                if x == 1:
+                    numeroTarjeta = i
+                    numeroTarjeta = re.sub("\'|\,", "", numeroTarjeta)
+                elif x == 3:
+                    saldoTarjeta = i
+                    saldoTarjeta = re.sub("\'|,","",saldoTarjeta)
+                x=x+1
+            embed = discord.Embed(
+                colour = discord.Colour.blue()
+            )
+            embed.add_field(name=f'Numero De Tarjeta:',value=f'{numeroTarjeta}', inline=False)
+            embed.add_field(name=f'Saldo De La Tarjeta',value=f'{saldoTarjeta}', inline=True)
+            embed.set_footer(text='Desarrollado por https://instagram.com/nicolas.5301')
 
 bot.run(os.environ['DISCORD_TOKEN'])

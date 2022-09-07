@@ -7,13 +7,13 @@ import re
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='>', intents=intents)
-sol_res = 81
+sol_res = 61
 api1 = 15
 api2 = 15
 api3 = 15
 api4 = 15
-api5 = 0
-api6 = 0
+api5 = 15
+api6 = 12
 api7 = 0
 api8 = 0
 api9 = 0
@@ -420,6 +420,7 @@ async def comandos(ctx):
     embed.add_field(
         name='>solicitudes', value='Muestra cuantas solictudes le qudan al bot', inline=False)
     embed.add_field(name=">apisstatus", value="Muestra cuantas solis le queda a cada api", inline=False)
+    embed.add_field(name=">verificar",value="Te cambia el numero al operador virgin mobile tienes que ingresar el numero sin el +57")
 
     await ctx.send(embed=embed)
 
@@ -487,8 +488,6 @@ async def placa(ctx, placa=None):
         response = requests.get(url, headers=headers, data=payload)
         if response.status_code != 200:
             await ctx.send("Ha ocurrido un error o proporcionaste informacion incorrecta.")
-            await ctx.send(response.text)
-            await ctx.send(response)
         else:
             j = response.json()
             doc = json.loads(response.text)
@@ -574,5 +573,23 @@ async def tullave(ctx, numero=None):
             embed.add_field(name=f'Saldo De La Tarjeta',value=f'{saldoTarjeta}', inline=True)
             embed.set_footer(text='Desarrollado por https://instagram.com/nicolas.5301')
             await ctx.send(embed=embed)
+@bot.command()
+async def verificar(ctx, numero=None):
+    url='https://app.virginmobile.co/api/evident/sms-evident'
+    if numero == None or len(numero) < 10:
+        await ctx.send("Debe digitar un numero valido")
+    else:
+        _headers = {"Content-Type": "application/json"}
+        _json = {"phoneNumber":f"{numero}","brand":{"id":1},"channel":{"id":5},"message":"Â¡Jelou! usa {code} como codigo de verificacion para tu linea. :)"}
+        response = requests.post(url,headers=_headers,data=json.dumps(_json))
+        j = response.json()
+        status = j['success']
+        codigo = j['data']['code']
+        embed = discord.Embed(
+                colour=discord.Colour.blue()
+        )
+        embed.add_field(name="Estado", value=f"{status}")
+        embed.add_field(name="Codigo para verificarse",value=f"{codigo}")
+        await ctx.send(embed=embed)
 
 bot.run(os.environ['DISCORD_TOKEN'])

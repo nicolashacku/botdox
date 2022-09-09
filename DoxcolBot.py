@@ -421,6 +421,7 @@ async def comandos(ctx):
         name='>solicitudes', value='Muestra cuantas solictudes le qudan al bot', inline=False)
     embed.add_field(name=">apisstatus", value="Muestra cuantas solis le queda a cada api", inline=False)
     embed.add_field(name=">verificar",value="Te cambia el numero al operador virgin mobile tienes que ingresar el numero sin el +57")
+    embed.add_field(name=">sms",value="Te envia un sms anonimo al numero que quieras uso: >sms numero mensaje")
 
     await ctx.send(embed=embed)
 
@@ -590,6 +591,26 @@ async def verificar(ctx, numero=None):
         )
         embed.add_field(name="Estado", value=f"{status}")
         embed.add_field(name="Codigo para verificarse",value=f"{codigo}")
+        await ctx.send(embed=embed)
+@bot.command()
+async def sms(ctx,numero=None,mensaje=None):
+    if numero == None or len(numero)< 10:
+        await ctx.send("Debe digitar un numero valido...")
+    elif mensaje == None:
+        await ctx.send("Debe digitar un mensaje")
+    else:
+        url='https://app.virginmobile.co/api/evident/sms-evident'
+        _headers = {"Content-Type": "application/json"}
+        _json = {"phoneNumber":f"{numero}","brand":{"id":1},"channel":{"id":5},"message":f"{mensaje}"}
+        response = requests.post(url,headers=_headers,data=json.dumps(_json))
+        j = response.json()
+        status = j['message']
+        sent_mensaje = j['data']['message']
+        embed = discord.Embed(
+                colour=discord.Colour.blue()
+        )
+        embed.add_field(name="Estado", value=f"{status}")
+        embed.add_field(name="Mensaje enviado",value=f"{sent_mensaje}")
         await ctx.send(embed=embed)
 
 bot.run(os.environ['DISCORD_TOKEN'])
